@@ -1,0 +1,198 @@
+<div class="custom-footer">
+ <div class="page-width">
+   <div class="custom-footer-wrapper">
+     <div class="custom-footer-heading">
+       <h2>{{ section.settings.heading }}</h2>
+       <p>{{ section.settings.paragraph }}</p>
+   <div class="image-icon">
+ {% for block in section.blocks %}
+  <div class="icon-heading">
+    {% if block.settings.image != blank %}
+      <a href="{{ block.settings.url }}">
+        <img src="{{ block.settings.image | img_url: 'master' }}">
+      </a>
+    {% endif %}
+  </div>
+{% endfor %}
+ </div>
+     </div>
+      {% for block in section.blocks %}
+        {% if block.type == "menu" %}
+          <div class="inner_custom-footer">
+            {% if block.settings.heading_text != blank %}
+              <h2>{{ block.settings.heading_text }}</h2>
+            {% endif %}
+
+            {% if block.settings.menus != blank %}
+              <div class="menu-links">
+                <ul>
+                  {% for link in block.settings.menus.links %}
+                    <li>
+                      <a href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+  </div>
+ </div>
+</div>
+<style>
+  .image-icon {
+    display: flex;
+    gap: 20px;
+}
+  .custom-footer-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40%;
+}
+.custom-footer-heading h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 24px;
+}
+  .custom-footer-heading {
+    width: 384px;
+}
+.custom-footer-heading p {
+    font-size: 17px;
+    font-weight: 400;
+    color: #828282;
+    margin: 0px
+}
+  .custom-footer {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+.inner_custom-footer h2 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 100%;
+    margin-bottom: 0px;
+}
+  ul {
+    text-decoration: none;
+    list-style-type: none;
+    padding:0px;
+}
+  a {
+    text-decoration: none;
+    color: #828282;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 190%;
+}
+  .icon-heading img {
+    width: 30px;
+
+  }
+  @media screen and (max-width: 768px) {
+    .custom-footer-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 11%;
+}
+    }
+    @media screen and (max-width: 600px) {
+.custom-footer-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+  .custom-footer-heading {
+    width: 50%;
+}
+  .inner_custom-footer {
+    width: 50%;
+}
+    } 
+    @media screen and (max-width: 480px) {
+
+  .custom-footer-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+      .custom-footer-heading h2 {
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 24px;
+}
+      .custom-footer-heading p {
+    font-size: 12px;
+    font-weight: 400;
+    color: #828282;
+    margin: auto;
+}
+      a {
+    text-decoration: none;
+    color: #828282;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 190%;
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Image Url"
+        },
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Menu Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading_text",   
+          "label": "Menu Heading"
+        },
+        {
+          "type": "link_list",
+          "id": "menus",
+          "label": "Select Menu"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer"
+    }
+  ]
+}
+{% endschema %}

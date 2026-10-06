@@ -1,0 +1,148 @@
+<div class="custom-blog">
+  <div class="page-width">
+    <div class="custom-blog-header">
+      <h2 class="custom-blog-title"></h2>
+      <p class="custom-blog-subtitle"></p>
+      <h5 class="blog-card-content"></h5>
+    </div>
+    <div class="custom-blog-wrapper">
+      {% for article in blogs['news'].articles limit: 2 %}
+        <div class="blog-card">
+          <span class="blog-badge">NEW</span>
+          <div class="blog-card-image">
+            <img src="{{ article.image | img_url: 'medium' }}" alt="{{ article.title }}">
+          </div>
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">{{ article.title }}</h3>
+             <h5 class="blog-card-description">{{ article.content | truncatewords: 50 }}  </h5>  
+            <p class="blog-card-excerpt">{{ article.excerpt | strip_html | truncatewords: 15 }}</p>
+            <a class="blog-readmore" href="{{ article.url }}">READ MORE</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+.custom-blog {
+  padding: 50px 0;
+  text-align: center;
+}
+.custom-blog-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+}
+.custom-blog-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+.custom-blog-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.blog-card {
+    width: 450px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+.blog-badge {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    padding: 18px 23px 18px 22px;
+    border-radius: 4px;
+    font-weight: 500;
+    /* font-family: Circular Std; */
+    line-height: 100%;
+}
+.blog-card-image img {
+  width: 100%;
+  height: auto;
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+.blog-card-content {
+    background-color: white;
+    margin: 30px;
+    border-radius: 12px;
+    margin-top: -10px;
+    position: absolute;
+    top: 302px;
+    padding-inline: 33px;
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+.blog-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.blog-card-excerpt {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 15px;
+}
+.blog-readmore {
+  font-size: 14px;
+  color: black;
+  text-decoration: underline;
+  font-weight:500;
+}
+  p {
+    margin: 0px;
+}
+  h5.blog-card-description {
+    margin-bottom: 10px;
+}
+      @media screen and (max-width: 480px) {
+.blog-card-content {
+    background-color: white;
+    margin: 30px;
+    border-radius: 12px;
+    margin-top: -10px;
+    position: absolute;
+    top: 270px;
+    padding-inline: 33px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+        .blog-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+        .blog-readmore {
+    font-size: 12px;
+    color: black;
+    text-decoration: underline;
+    font-weight: 500;
+}
+        h5.blog-card-description {
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+      }
+</style>
+{% schema %}
+{
+  "name": "Custom Blog",
+  "settings": [
+    
+  ],
+  "presets": [
+    {
+      "name": "Custom Blog"
+    }
+  ]
+}
+{% endschema %}

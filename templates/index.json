@@ -1,0 +1,369 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_hero_banner_E4CKVA": {
+      "type": "custom-hero-banner",
+      "name": "Custom Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/herobanner.png",
+        "heading": "Fastwater Your Ultimate Hydration Partner for Intermittent Fasting",
+        "paragraph": "<p>Stay hydrated, replenish electrolytes, and support your fasting lifestyle Zero calories, Zero compromises<br/><br/></p>",
+        "button": "Learn More",
+        "url": ""
+      }
+    },
+    "custom_heading_image_BLyi73": {
+      "type": "custom-heading-image",
+      "name": "Custom Heading Image",
+      "settings": {
+        "left-icon": "shopify://shop_images/Frame_2.png",
+        "left-heading": "Zero Calories, Sugar,& Artificial Additives",
+        "le-icon": "shopify://shop_images/Frame_7.png",
+        "le-heading": "Electrolytes That Work for Your Body",
+        "middle-heading": "The Game Changer Perks",
+        "image": "shopify://shop_images/48a298f9746fcdce77441efebd4b12cb72c42773.png",
+        "right-icon": "shopify://shop_images/Frame_6.png",
+        "right-heading": "Hydration for Every Fast",
+        "rig-icon": "shopify://shop_images/Frame_8.png",
+        "rig-heading": "Natural and Clean Ingredients"
+      }
+    },
+    "custom_collection_qce47d": {
+      "type": "custom-collection",
+      "name": "Custom Collection",
+      "settings": {
+        "heading": "Meet The Squad",
+        "paragraph": "<p>Stay energized and hydrated<br/><br/></p>",
+        "collection": "drinks"
+      }
+    },
+    "custom_collection_mLzFdi": {
+      "type": "custom-collection",
+      "disabled": true,
+      "name": "Custom Collection",
+      "settings": {
+        "heading": "",
+        "paragraph": "",
+        "collection": "drinks"
+      }
+    },
+    "custom_heading_with_image_cKgERx": {
+      "type": "custom-heading-with-image",
+      "blocks": {
+        "heading_MBX7Gk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hydration During Fasting",
+            "paragraph": "<p>Keeps you hydrated with essential electrolytes while maintaining your fast—zero calories, sugar, or artificial additives.<br/><br/></p>"
+          }
+        },
+        "heading_nyzLRm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Health-Focused Formula",
+            "paragraph": "<p>Free from artificial colors, sweeteners, and caffeine, designed for health-conscious individuals prioritizing wellness.<br/><br/></p>"
+          }
+        },
+        "heading_ndX6JB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Unique Innovation",
+            "paragraph": "<p>The first drink created specifically for intermittent fasting, offering a groundbreaking solution in the health beverage market.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MBX7Gk",
+        "heading_nyzLRm",
+        "heading_ndX6JB"
+      ],
+      "name": "Custom Heading With Image",
+      "settings": {
+        "image": "shopify://shop_images/woman-meditating-lawn-park-sitting-sports-mat-relaxing-breathing-fresh-air_2.png",
+        "heading": "Why Choose Fastwater?",
+        "paragraph": "<p>The Ultimate Hydration Solution for Your Fasting Journey<br/><br/></p>",
+        "head": "Stay Hydrated, Stay Fasting with Zero Compromises!",
+        "button": "Shop Now",
+        "url": ""
+      }
+    },
+    "custom_heading_3XRWEM": {
+      "type": "custom-heading",
+      "name": "custom heading",
+      "settings": {
+        "heading": "What Customers say"
+      }
+    },
+    "custom_slider_NMLUVf": {
+      "type": "custom-slider",
+      "blocks": {
+        "testimonial_block_hw9JEJ": {
+          "type": "testimonial_block",
+          "settings": {
+            "testimonial_text": "Fastwater has been a game-changer for my fasting routine! It keeps me perfectly hydrated without breaking my fast—zero calories, sugar, or artificial additives. Refreshing, clean, and health-focused, it’s the ultimate drink for anyone serious about intermittent fasting!",
+            "author_name": "Rashmi sharma"
+          }
+        },
+        "testimonial_block_zEJJXH": {
+          "type": "testimonial_block",
+          "settings": {
+            "testimonial_text": "Fastwater has been a game-changer for my fasting routine! It keeps me perfectly hydrated without breaking my fast—zero calories, sugar, or artificial additives. Refreshing, clean, and health-focused, it’s the ultimate drink for anyone serious about intermittent fasting!",
+            "author_name": "Rashmi sharma"
+          }
+        },
+        "testimonial_block_Nat3NN": {
+          "type": "testimonial_block",
+          "settings": {
+            "testimonial_text": "Fastwater has been a game-changer for my fasting routine! It keeps me perfectly hydrated without breaking my fast—zero calories, sugar, or artificial additives. Refreshing, clean, and health-focused, it’s the ultimate drink for anyone serious about intermittent fasting!",
+            "author_name": "Rashmi sharma"
+          }
+        },
+        "testimonial_block_FXPjWq": {
+          "type": "testimonial_block",
+          "settings": {
+            "testimonial_text": "Fastwater has been a game-changer for my fasting routine! It keeps me perfectly hydrated without breaking my fast—zero calories, sugar, or artificial additives. Refreshing, clean, and health-focused, it’s the ultimate drink for anyone serious about intermittent fasting!",
+            "author_name": "Rashmi sharma"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_block_hw9JEJ",
+        "testimonial_block_zEJJXH",
+        "testimonial_block_Nat3NN",
+        "testimonial_block_FXPjWq"
+      ],
+      "name": "Custom Sider",
+      "settings": {
+        "heading": ""
+      }
+    },
+    "custom_blog_n9hEbV": {
+      "type": "custom-blog",
+      "name": "Custom Blog",
+      "settings": {}
+    },
+    "custom_qustion_4gwDqg": {
+      "type": "custom-qustion",
+      "blocks": {
+        "faq_item_pDTRYL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is Fastwater?",
+            "answer": "It’s packed with sodium, magnesium, potassium, Vitamin B, zinc and it’s sweetened with monk fruit."
+          }
+        },
+        "faq_item_baD6JV": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What’s in it?",
+            "answer": "It’s packed with sodium, magnesium, potassium, Vitamin B, zinc and it’s sweetened with monk fruit."
+          }
+        },
+        "faq_item_xNrLNx": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is monk fruit?",
+            "answer": "It’s packed with sodium, magnesium, potassium, Vitamin B, zinc and it’s sweetened with monk fruit."
+          }
+        },
+        "faq_item_9DyJxx": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why monkfruit and not stevia?",
+            "answer": "It’s packed with sodium, magnesium, potassium, Vitamin B, zinc and it’s sweetened"
+          }
+        },
+        "faq_item_bdrWK3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does it have any artificial ingredients?",
+            "answer": "It’s packed with sodium, magnesium, potassium, Vitamin B, zinc and it’s sweetened with monk fruit."
+          }
+        },
+        "faq_item_Nzg7TV": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why won’t it break my fast?",
+            "answer": "It’s packed with sodium, magnesium, potassium, Vitamin B, zinc and it’s sweetened with monk fruit."
+          }
+        },
+        "faq_item_aCLcTg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does it have caffeine?",
+            "answer": "It’s packed with sodium, magnesium, potassium, Vitamin B, zinc and it’s sweetened with monk fruit."
+          }
+        },
+        "faq_item_rHEV9E": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it only for people who are fasting?",
+            "answer": "It’s packed with sodium, magnesium, potassium, Vitamin B, zinc and it’s sweetened with monk fruit."
+          }
+        },
+        "faq_item_ECi3Ck": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How is Fastwater different from other carbonated drinks?",
+            "answer": "It’s packed with sodium, magnesium, potassium, Vitamin B, zinc and it’s sweetened with monk fruit."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_pDTRYL",
+        "faq_item_baD6JV",
+        "faq_item_xNrLNx",
+        "faq_item_9DyJxx",
+        "faq_item_bdrWK3",
+        "faq_item_Nzg7TV",
+        "faq_item_aCLcTg",
+        "faq_item_rHEV9E",
+        "faq_item_ECi3Ck"
+      ],
+      "name": "Custom FAQ Hover",
+      "settings": {
+        "heading": ""
+      }
+    },
+    "cutom_case_xC4jDU": {
+      "type": "cutom-case",
+      "blocks": {
+        "text_block_EgdRi9": {
+          "type": "text_block",
+          "settings": {
+            "text": "hkhkhkhk"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_EgdRi9"
+      ],
+      "name": "Multi Block Example",
+      "settings": {}
+    },
+    "custom_productmmm_fd73cG": {
+      "type": "custom-productmmm",
+      "blocks": {
+        "word_aat6p6": {
+          "type": "word",
+          "settings": {
+            "text": "Become the center of attention effortlessly. Our perfumes enhance your natural charisma, drawing people towards you with their captivating scents.of users experienced a noticeable improvement in their mood, citing our scents as a major factor in elevating their day-to-day wellbeing.of users experienced a noticeable improvement in their mood, citing our scents as a major factor in elevating their day-to-day wellbeing."
+          }
+        }
+      },
+      "block_order": [
+        "word_aat6p6"
+      ],
+      "name": "Scrolling Text with Image",
+      "settings": {
+        "left_image": "shopify://shop_images/Screenshot_3.png"
+      }
+    },
+    "custom_collection_ANzdgJ": {
+      "type": "custom-collection",
+      "name": "Custom Collection",
+      "settings": {
+        "heading": "",
+        "paragraph": "",
+        "collection": ""
+      }
+    },
+    "custom_collection_2_WDXxKN": {
+      "type": "custom-collection-2",
+      "name": "Custom Collection-2",
+      "settings": {}
+    },
+    "custom_ggggg_bHqTYt": {
+      "type": "custom-ggggg",
+      "name": "custom gggg",
+      "settings": {}
+    },
+    "17815084785380dea6": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_34a4f62_U7nwFj": {
+          "type": "ai_gen_block_34a4f62",
+          "settings": {
+            "free_shipping_threshold": 165,
+            "progress_message": "Add",
+            "progress_message_suffix": "to get free shipping",
+            "success_message": "You've unlocked free shipping!",
+            "desktop_width_percent": 100,
+            "padding": 20,
+            "border_radius": 8,
+            "background_color": "#FFF8F0",
+            "text_color": "#5C4033",
+            "highlight_color": "#D2691E",
+            "text_size": 14,
+            "icon_size": 20,
+            "bar_height": 10,
+            "bar_border_radius": 10,
+            "bar_background_color": "#E8D5C4",
+            "bar_fill_color": "#D2691E",
+            "success_color": "#8B6914"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_34a4f62_U7nwFj"
+      ],
+      "settings": {}
+    },
+    "17815089518696102d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_8177fca_wzeCLy": {
+          "type": "ai_gen_block_8177fca",
+          "settings": {
+            "free_shipping_threshold": 100,
+            "message_text": "Add [amount] to get free shipping",
+            "success_message": "You've unlocked free shipping!",
+            "padding": 16,
+            "border_radius": 8,
+            "background_color": "#FFF5EB",
+            "text_color": "#5C4033",
+            "highlight_color": "#D2691E",
+            "text_size": 14,
+            "bar_height": 10,
+            "bar_border_radius": 10,
+            "bar_background_color": "#E8D5C4",
+            "bar_fill_color": "#D2691E",
+            "success_text_color": "#8B4513"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_8177fca_wzeCLy"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "custom_hero_banner_E4CKVA",
+    "custom_heading_image_BLyi73",
+    "custom_collection_qce47d",
+    "custom_collection_mLzFdi",
+    "custom_heading_with_image_cKgERx",
+    "custom_heading_3XRWEM",
+    "custom_slider_NMLUVf",
+    "custom_blog_n9hEbV",
+    "custom_qustion_4gwDqg",
+    "cutom_case_xC4jDU",
+    "custom_productmmm_fd73cG",
+    "custom_collection_ANzdgJ",
+    "custom_collection_2_WDXxKN",
+    "custom_ggggg_bHqTYt",
+    "17815084785380dea6",
+    "17815089518696102d"
+  ]
+}

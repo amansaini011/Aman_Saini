@@ -1,0 +1,244 @@
+<div class="custom-heading-with-image">
+  <div class="page-width">
+    <div class="custom-heading-with-text-wrapper">
+      <div class="heading-with-text">
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.paragraph }}</p>
+      </div>
+        <div class="background-img" style="background-image: url('{{ section.settings.image | img_url: 'master' }}'); background-size: cover; background-position: center; color: white; text-align: center; height: 100vh;">
+        <div class="img-banner-text">
+        <h3>{{ section.settings.head }}</h3>
+        </div>
+  </div>
+     <div class="image-wrapper">
+  {% for block in section.blocks %}
+    <div class="images-text">
+    {% if block.settings.heading != blank %}
+      <h2>{{ block.settings.heading }}</h2>
+    {{ block.settings.paragraph }}
+    {% endif %}
+    </div>
+  {% endfor %}
+</div>
+</div>
+    <div class="button-shop-here">
+    <a href="{{ section.settings.url }}" class="button-here">{{ section.settings.button }}</a>
+    </div>
+</div>
+</div>
+
+<style>
+  .heading-with-text {
+    text-align: center;
+}
+.heading-with-text h2 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 72px;
+    font-family: 'Poppins';
+}
+.heading-with-text p {
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.img-banner-text {
+    text-align: left;
+    position: relative;
+    top: 80px;
+    left: 60px;
+}
+.img-banner-text h3 {
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    line-height: 42px;
+    /* max-width: 29%; */
+    width: 29%;
+}
+.image-wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding-top: 25px;
+}
+.images-text h2 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 20px;
+    font-family: poppins;
+}
+.images-text  p {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: poppins;
+    line-height: 20px;
+}
+  .image-wrapper .images-text {
+  transition: background-color 0.3s ease;
+}
+
+.image-wrapper .images-text:hover {
+  background-color: #A02C6B;
+  color: white;
+}
+  .custom-heading-with-image {
+    padding-bottom: 30px;
+}
+a.button-here {
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    background: #A02C6B;
+    color: white;
+    padding: 10px 22px 10px 24px;
+    border: 2px;
+    border-radius: 20px;
+}
+  .button-shop-here {
+    text-align: center;
+    padding-top: 22px;
+}
+  @media screen and (max-width: 768px) {
+
+  .images-text h2 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 20px;
+    font-family: poppins;
+}
+    .images-text  p {
+    font-size: 17px;
+    font-weight: 500;
+    font-family: poppins;
+    line-height: 20px;
+    /* text-align: center; */
+}
+    .image-wrapper .images-text {
+    transition: background-color 0.3s ease;
+    text-align: center;
+    /* max-width: 100%; */
+}
+    .image-wrapper {
+    display: block;
+    justify-content: space-around;
+    gap: 20px;
+    padding-top: 25px;
+}
+   .img-banner-text h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    line-height: 31px;
+    max-width: 196px;
+    width: 100%;
+}
+    .img-banner-text {
+    text-align: left;
+    position: relative;
+    top: 46px;
+    left: 60px;
+}
+    .img-banner-text {
+    text-align: left;
+    position: relative;
+    top: 46px;
+    left: 60px;
+    width: 91%;
+}
+  }
+    @media screen and (max-width: 480px) {
+.img-banner-text h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    line-height: 31px;
+    /* max-width: 29%; */
+    width: 51%;
+}
+  .heading-with-text h2 {
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 53px;
+    font-family: 'Poppins';
+}
+      .img-banner-text {
+    text-align: left;
+    position: relative;
+    top: 46px;
+    left: 23px;
+    width: 100%;
+}
+      .img-banner-text h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    line-height: 31px;
+    /* max-width: 29%; */
+    width: 100%;
+}
+  }
+</style>
+
+
+
+{% schema %}
+  {
+    "name": "Custom Heading With Image",
+    "settings": [
+      {
+        "type":"image_picker",
+        "id":"image",
+        "label":"Bg Image"
+      },
+     {
+       "type":"text",
+       "id":"heading",
+       "label":"Heading"
+     },
+      {
+        "type":"richtext",
+        "id":"paragraph",
+        "label":"Paragaph"
+      },
+      {
+        "type":"text",
+        "id":"head",
+        "label":"Heading"
+      },
+      {
+        "type":"text",
+        "id":"button",
+        "label":"Button Url"
+      },
+      {
+        "type":"url",
+        "id":"url",
+        "label":"Button Url"
+      }
+    ], 
+ "blocks": [
+      {
+        "type": "heading",
+        "name": "Head Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "paragraph",
+            "label": "Paragraph"
+          }
+        ]
+      }
+    ],
+   "presets": [
+      {
+        "name": "Custom Heading With Image"
+      }
+    ]
+  }
+{% endschema %}

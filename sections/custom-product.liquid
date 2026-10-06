@@ -1,0 +1,45 @@
+<div class="custom-main-product">
+  <div class="page-width">
+    <div class="custom-main-product-wrapper">
+      {% assign product = all_products[section.settings.product] %}
+        {% for media in product.media %}
+          <a href="{{ product.url }}">
+            <div class="main-product-img">
+              <img src="{{ media | img_url: 'master' }}">
+            </div>
+          </a>
+        {% endfor %}
+
+        <div class="product-info">
+          <h2>{{ product.title }}</h2>
+
+          {{ product.price|money }}---{{ product.compare_at_price|money }}
+
+        {% render 'buy-buttons', product: product %}
+
+        <div class="product-description">
+         <h2>{{ product.description }}</h2>
+        </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Product"
+    }
+  ]
+}
+{% endschema %}

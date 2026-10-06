@@ -1,0 +1,66 @@
+<div class="custom-fotter-heading">
+  <div class="page-width">
+   <div class="custom-fotter-heading-wrapper">
+     <div class="heading-fotter">
+       <h2>{{ section.settings.heading }}</h2>
+     </div>
+     <div class="richtext-fotter">
+       <h2>{{ section.settings.head }}</h2>
+   </div>    
+  </div>  
+</div>
+</div>
+
+<style>
+  
+  .custom-fotter-heading-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.richtext-fotter h2 {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: poppins;
+    line-height: 100%;
+    margin: 0px;
+    color: white;
+}
+.heading-fotter h2 {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: poppins;
+    line-height: 100%;
+    margin: 0px;
+  color: white;
+}
+  .custom-fotter-heading {
+    background-color: #A02C6B;
+    padding: 10px;
+}
+</style>
+
+
+{% schema %}
+  {
+    "name": "Custom Fotter Heading",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "head",
+        "label": "Heading"
+      },
+      
+    ],
+    "presets": [
+      {
+        "name": "Custom fotter Heading"
+      }
+    ]
+  }
+{% endschema %}

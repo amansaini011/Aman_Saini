@@ -1,0 +1,49 @@
+<div class="multi-block-section">
+  {% for block in section.blocks %}
+    {% case block.type %}
+
+      {% when 'text_block' %}
+        <p>{{ block.settings.text }}</p>
+
+      {% when 'image_block' %}
+        <img src="{{ block.settings.image | img_url: 'master' }}" alt="Image">
+
+    {% endcase %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Multi Block Example",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "text_block",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Enter Text"
+        }
+      ]
+    },
+    {
+      "type": "image_block",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Choose Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi Block Example"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,373 @@
+{% doc %}
+  @prompt
+    Create a free shipping progress bar for the cart page that shows customers how much more they need to spend to get free shipping. It should display: a message like "Add $X.XX to get free shipping", a visual progress bar that fills up as the cart total increases, and a "Free shipping" label/icon that appears when the threshold is reached. The progress bar should have a warm brown/orange color scheme matching a handmade/craft store aesthetic. The free shipping threshold should be configurable (default $235). Style it to appear at the top of the cart drawer or cart page.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% assign cart_total = cart.total_price | divided_by: 100.0 %}
+{% assign threshold = block.settings.free_shipping_threshold %}
+{% assign remaining = threshold | minus: cart_total %}
+{% assign progress_percent = cart_total | divided_by: threshold | times: 100 %}
+
+{% if progress_percent > 100 %}
+  {% assign progress_percent = 100 %}
+{% endif %}
+
+{% style %}
+  .ai-shipping-progress-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.padding }}px;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    margin: 0 auto;
+  }
+
+  .ai-shipping-progress__content-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-shipping-progress__message-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .ai-shipping-progress__icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    flex-shrink: 0;
+  }
+
+  .ai-shipping-progress__icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  .ai-shipping-progress__amount-{{ ai_gen_id }} {
+    font-weight: 700;
+    color: {{ block.settings.highlight_color }};
+  }
+
+  .ai-shipping-progress__bar-container-{{ ai_gen_id }} {
+    width: 100%;
+    height: {{ block.settings.bar_height }}px;
+    background-color: {{ block.settings.bar_background_color }};
+    border-radius: {{ block.settings.bar_border_radius }}px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ai-shipping-progress__bar-fill-{{ ai_gen_id }} {
+    height: 100%;
+    background: {{ block.settings.bar_fill_color }};
+    border-radius: {{ block.settings.bar_border_radius }}px;
+    transition: width 0.5s ease;
+    width: {{ progress_percent }}%;
+  }
+
+  .ai-shipping-progress__success-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: {{ block.settings.success_color }};
+    font-size: {{ block.settings.text_size }}px;
+    font-weight: 600;
+  }
+
+  .ai-shipping-progress__success-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    flex-shrink: 0;
+  }
+
+  .ai-shipping-progress__success-icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-shipping-progress-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-shipping-progress__message-{{ ai_gen_id }},
+    .ai-shipping-progress__success-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<free-shipping-progress-{{ ai_gen_id }}
+  class="ai-shipping-progress-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+  data-threshold="{{ threshold }}"
+  data-currency-symbol="{{ cart.currency.symbol }}"
+>
+  <div class="ai-shipping-progress__content-{{ ai_gen_id }}">
+    {% if remaining > 0 %}
+      <div class="ai-shipping-progress__message-{{ ai_gen_id }}">
+        <span class="ai-shipping-progress__icon-{{ ai_gen_id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+        </span>
+        <span>
+          {{ block.settings.progress_message }}
+          <span class="ai-shipping-progress__amount-{{ ai_gen_id }}">{{ remaining | money }}</span>
+          {{ block.settings.progress_message_suffix }}
+        </span>
+      </div>
+    {% else %}
+      <div class="ai-shipping-progress__success-{{ ai_gen_id }}">
+        <span class="ai-shipping-progress__success-icon-{{ ai_gen_id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </span>
+        <span>{{ block.settings.success_message }}</span>
+      </div>
+    {% endif %}
+
+    <div class="ai-shipping-progress__bar-container-{{ ai_gen_id }}">
+      <div class="ai-shipping-progress__bar-fill-{{ ai_gen_id }}"></div>
+    </div>
+  </div>
+</free-shipping-progress-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class FreeShippingProgress{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.threshold = parseFloat(this.dataset.threshold);
+        this.currencySymbol = this.dataset.currencySymbol;
+      }
+
+      connectedCallback() {
+        this.updateProgress();
+        document.addEventListener('cart:updated', () => this.updateProgress());
+      }
+
+      updateProgress() {
+        fetch('/cart.js')
+          .then(response => response.json())
+          .then(cart => {
+            const cartTotal = cart.total_price / 100;
+            const remaining = this.threshold - cartTotal;
+            const progressPercent = Math.min((cartTotal / this.threshold) * 100, 100);
+
+            const barFill = this.querySelector('.ai-shipping-progress__bar-fill-{{ ai_gen_id }}');
+            if (barFill) {
+              barFill.style.width = progressPercent + '%';
+            }
+
+            const messageContainer = this.querySelector('.ai-shipping-progress__message-{{ ai_gen_id }}');
+            const successContainer = this.querySelector('.ai-shipping-progress__success-{{ ai_gen_id }}');
+
+            if (remaining > 0) {
+              if (messageContainer) messageContainer.style.display = 'flex';
+              if (successContainer) successContainer.style.display = 'none';
+
+              const amountElement = this.querySelector('.ai-shipping-progress__amount-{{ ai_gen_id }}');
+              if (amountElement) {
+                amountElement.textContent = this.formatMoney(remaining * 100);
+              }
+            } else {
+              if (messageContainer) messageContainer.style.display = 'none';
+              if (successContainer) successContainer.style.display = 'flex';
+            }
+          })
+          .catch(error => console.error('Error updating shipping progress:', error));
+      }
+
+      formatMoney(cents) {
+        const amount = (cents / 100).toFixed(2);
+        return this.currencySymbol + amount;
+      }
+    }
+
+    customElements.define('free-shipping-progress-{{ ai_gen_id }}', FreeShippingProgress{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Free shipping progress",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Shipping threshold"
+    },
+    {
+      "type": "range",
+      "id": "free_shipping_threshold",
+      "min": 10,
+      "max": 500,
+      "step": 5,
+      "label": "Free shipping threshold",
+      "default": 235
+    },
+    {
+      "type": "header",
+      "content": "Messages"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "progress_message",
+      "label": "Progress message",
+      "default": "Add"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "progress_message_suffix",
+      "label": "Progress message suffix",
+      "default": "to get free shipping"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "You've unlocked free shipping!"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFF8F0"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#5C4033"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Amount highlight color",
+      "default": "#D2691E"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Progress bar"
+    },
+    {
+      "type": "range",
+      "id": "bar_height",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Bar height",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "bar_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Bar border radius",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "bar_background_color",
+      "label": "Bar background color",
+      "default": "#E8D5C4"
+    },
+    {
+      "type": "color",
+      "id": "bar_fill_color",
+      "label": "Bar fill color",
+      "default": "#D2691E"
+    },
+    {
+      "type": "header",
+      "content": "Success state"
+    },
+    {
+      "type": "color",
+      "id": "success_color",
+      "label": "Success color",
+      "default": "#8B6914"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Free shipping progress"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,118 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_product_XKHeTy": {
+      "type": "custom-product",
+      "name": "Custom Product",
+      "settings": {
+        "product": "fastwater-mixed-berry"
+      }
+    },
+    "custom_advantage_Kjm3By": {
+      "type": "custom-advantage",
+      "blocks": {
+        "advantage_block_UJiqUP": {
+          "type": "advantage_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2_1.png",
+            "heading": "Zero Calories, Sugar,& Artificial Additives"
+          }
+        },
+        "advantage_block_eHGzdQ": {
+          "type": "advantage_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_7_1.png",
+            "heading": "Electrolytes That Work for Your Body"
+          }
+        },
+        "advantage_block_mq8zxz": {
+          "type": "advantage_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_8_1.png",
+            "heading": "Natural and Clean Ingredients"
+          }
+        },
+        "advantage_block_mFk9Ap": {
+          "type": "advantage_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6_1.png",
+            "heading": "Hydration for Every Fast"
+          }
+        }
+      },
+      "block_order": [
+        "advantage_block_UJiqUP",
+        "advantage_block_eHGzdQ",
+        "advantage_block_mq8zxz",
+        "advantage_block_mFk9Ap"
+      ],
+      "name": "Custom Advantage",
+      "settings": {}
+    },
+    "custom_image_slider_ccqdPw": {
+      "type": "custom-image-slider",
+      "blocks": {
+        "slide_HNwJgH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4319_1.png"
+          }
+        },
+        "slide_z9Maxi": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4318.png"
+          }
+        },
+        "slide_VcGT4h": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4318.png"
+          }
+        },
+        "slide_WdNdnG": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4319_1.png"
+          }
+        },
+        "slide_6cEqzr": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4319_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_HNwJgH",
+        "slide_z9Maxi",
+        "slide_VcGT4h",
+        "slide_WdNdnG",
+        "slide_6cEqzr"
+      ],
+      "name": "Custom Image Slider",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "custom_product_XKHeTy",
+    "custom_advantage_Kjm3By",
+    "custom_image_slider_ccqdPw"
+  ]
+}

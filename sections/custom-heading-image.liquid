@@ -1,0 +1,159 @@
+<div class="custom-heading-image">
+<div class="page-width">
+  <div class="custom-image-heading-wrapper">
+ <div class="heading-with-text-wrapper">
+    <div class="heading-with-text-left-1">
+       <img src="{{ section.settings.left-icon |img_url:'master' }}">
+       <h4>{{ section.settings.left-heading }}</h4>
+    </div>
+     <div class="heading-with-text-left-2">
+       <img src="{{ section.settings.le-icon |img_url:'master' }}">
+       <h4>{{ section.settings.le-heading }}</h4>
+    </div>
+ </div>
+    <div class="image-heading">
+      <h2>{{ section.settings.middle-heading }}</h2>
+      <img src="{{ section.settings.image|img_url:'master' }}">
+    </div> 
+   <div class="heading-with-text-wrapper">
+    <div class="heading-with-text-right-1">
+       <img src="{{ section.settings.right-icon |img_url:'master' }}">
+       <h4>{{ section.settings.right-heading }}</h4>
+    </div>
+    <div class="heading-with-text-right-2">
+       <img src="{{ section.settings.rig-icon |img_url:'master' }}">
+       <h4>{{ section.settings.rig-heading }}</h4>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+<style>
+.image-heading img {
+    width: 100%;
+}
+  .custom-image-heading-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+  .heading-with-text-wrapper {
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+}
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+    margin-top: 0px;
+}
+.image-heading h2 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-top: 0px;
+}
+  .heading-with-text-right-1 {
+    width: 200px;
+}
+  .custom-heading-image {
+    padding-top: 80px;
+    background-color: #F5F5F5;
+}
+  .image-heading {
+    text-align: center;
+}
+  
+  @media screen and (max-width: 768px) {
+.image-heading h2 {
+    font-size: 45px;
+    font-weight: 700;
+    margin-top: 0px;
+}
+    .custom-image-heading-wrapper {
+    display: block;
+    justify-content: center;
+    gap: 60px;
+}
+    .heading-with-text-right-1 {
+    width: 100%;
+}
+    .heading-with-text-wrapper {
+    align-items: center;
+    text-align: center;
+    padding-top: 40px;
+}
+    .custom-heading-image {
+    padding-top: 40px !important;
+    background-color: #F5F5F5;
+}
+  }
+
+
+    
+    }
+</style>
+
+
+{% schema %}
+  {
+    "name": "Custom Heading Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "left-icon",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "left-heading",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "le-icon",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "le-heading",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "middle-heading",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "right-icon",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "right-heading",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "rig-icon",
+        "label": "Image"
+      },
+       {
+        "type": "text",
+        "id": "rig-heading",
+        "label": "Heading"
+      },
+    ],
+    "presets": [
+      {
+        "name": "Custom Heading Image"
+      }
+    ]
+  }
+{% endschema %}

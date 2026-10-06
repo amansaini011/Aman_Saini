@@ -1,0 +1,155 @@
+<div class="custom-slider">
+  <div class="page-width">
+    <div class="slider-heading">
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <div class="testimonial-slider">
+      {% for block in section.blocks %}
+        <div class="testimonial-slide">
+          <p class="testimonial-text">{{ block.settings.testimonial_text }}</p>
+          <div class="stars">
+            {% for i in (1..5) %}
+              <span class="star">★</span>
+            {% endfor %}
+          </div>
+          <p class="author-name">{{ block.settings.author_name }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+.custom-slider {
+  background: #A02C6B;
+  padding: 60px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.slider-heading h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.testimonial-slider {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.testimonial-slide {
+  background: #fff;
+  color: #222;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.testimonial-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.heading-slider h2 {
+    text-align: center;
+    font-size: 29px;
+    font-weight: 600;
+    font-family: 'Poppins';
+}
+.stars {
+  color: #f9bf3b;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.author-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.slick-dots {
+  margin-top: 30px;
+}
+.slick-dots li button:before {
+  font-size: 10px;
+  color: #fff;
+  opacity: 0.5;
+}
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .slider-heading h2 {
+    font-size: 28px;
+  }
+  .testimonial-slide {
+    padding: 30px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slider-heading h2 {
+    font-size: 22px;
+  }
+  .testimonial-text {
+    font-size: 15px;
+  }
+  .author-name {
+    font-size: 13px;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    $('.testimonial-slider').slick({
+      dots: true,
+      arrows: false,
+      infinite: true,
+      speed: 500,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      slidesToShow: 1,
+      adaptiveHeight: true
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Testimonial Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Slider Heading",
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial_block",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "testimonial_text",
+          "label": "Testimonial Text"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Responsive Testimonial Slider",
+    }
+  ]
+}
+{% endschema %}

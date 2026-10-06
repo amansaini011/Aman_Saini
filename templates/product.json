@@ -1,0 +1,210 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "12 PACKS",
+            "text_style": "uppercase"
+          }
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "description",
+        "vendor",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "custom_advantage_9hbDM3": {
+      "type": "custom-advantage",
+      "blocks": {
+        "advantage_block_Hyxjrw": {
+          "type": "advantage_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2_1.png",
+            "heading": "Zero Calories, Sugar,& Artificial Additives"
+          }
+        },
+        "advantage_block_UDdqL7": {
+          "type": "advantage_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_7_1.png",
+            "heading": "Electrolytes That Work for Your Body"
+          }
+        },
+        "advantage_block_awiU8H": {
+          "type": "advantage_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_8_1.png",
+            "heading": "Natural and Clean Ingredients"
+          }
+        },
+        "advantage_block_nWKRNY": {
+          "type": "advantage_block",
+          "settings": {
+            "image": "shopify://shop_images/Frame_6_1.png",
+            "heading": "Hydration for Every Fast"
+          }
+        }
+      },
+      "block_order": [
+        "advantage_block_Hyxjrw",
+        "advantage_block_UDdqL7",
+        "advantage_block_awiU8H",
+        "advantage_block_nWKRNY"
+      ],
+      "name": "Custom Advantage",
+      "settings": {}
+    },
+    "custom_collection_bHBiUY": {
+      "type": "custom-collection",
+      "name": "Custom Collection",
+      "settings": {
+        "heading": "Related Prduct",
+        "paragraph": "",
+        "collection": "related"
+      }
+    },
+    "custom_image_slider_EPP93x": {
+      "type": "custom-image-slider",
+      "blocks": {
+        "slide_4XiFrn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4321.png"
+          }
+        },
+        "slide_XkAiiF": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4318.png"
+          }
+        },
+        "slide_azyNz6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4318.png"
+          }
+        },
+        "slide_maeaib": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4318.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_4XiFrn",
+        "slide_XkAiiF",
+        "slide_azyNz6",
+        "slide_maeaib"
+      ],
+      "name": "Custom Image Slider",
+      "settings": {}
+    },
+    "sticky_atc_Vm7Ln6": {
+      "type": "sticky-atc",
+      "name": "Sticky Add to Cart22",
+      "settings": {
+        "button_text": "Add to Cart"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "custom_advantage_9hbDM3",
+    "custom_collection_bHBiUY",
+    "custom_image_slider_EPP93x",
+    "sticky_atc_Vm7Ln6"
+  ]
+}

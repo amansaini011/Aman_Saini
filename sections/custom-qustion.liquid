@@ -1,0 +1,174 @@
+<div class="custom-question">
+  <div class="page-width">
+<div class="faq-container">
+  <div class="faq-left">
+    <div class="faq-heading">{{ section.settings.heading }}</div>
+    <div class="faq-question-list">
+      {% for block in section.blocks %}
+        <div class="faq-question-item {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+          <div class="faq-dot"></div>
+          <div class="faq-question-text">{{ block.settings.question }}</div>
+          <div class="faq-arrow">&gt;</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="faq-right" id="faq-answer-box">
+    {% assign first_block = section.blocks.first %}
+    <div class="faq-answer-title">{{ first_block.settings.question }}</div>
+    <div class="faq-answer-content">{{ first_block.settings.answer }}</div>
+  </div>
+</div>
+</div>
+</div>
+
+<style>
+.faq-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.faq-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.faq-heading {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.faq-question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-question-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.faq-question-item:hover,
+.faq-question-item.active {
+  background: #fceffc;
+}
+
+.faq-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #a02c6b;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.faq-question-text {
+  flex: 1;
+  font-size: 15px;
+}
+
+.faq-arrow {
+  color: #a02c6b;
+  font-weight: bold;
+}
+.faq-answer-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.faq-answer-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.faq-right {
+    flex: 1.2;
+    min-width: 300px;
+    background-color: #a02c6b;
+    color: white;
+    border-radius: 10px;
+    padding: 25px 30px;
+    position: relative;
+    height: 250px;
+}
+@media (max-width: 768px) {
+  .faq-container {
+    flex-direction: column;
+  }
+  .faq-right {
+    margin-top: 30px;
+  }
+}
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const questionItems = document.querySelectorAll('.faq-question-item');
+    const answerBox = document.getElementById('faq-answer-box');
+    const answers = [
+      {% for block in section.blocks %}
+        {
+          question: `{{ block.settings.question | escape }}`,
+          answer: `{{ block.settings.answer | escape }}`,
+        },
+      {% endfor %}
+    ];
+
+    questionItems.forEach((item, index) => {
+      item.addEventListener('mouseenter', () => {
+        questionItems.forEach(q => q.classList.remove('active'));
+        item.classList.add('active');
+        answerBox.innerHTML = `
+          <div class="faq-answer-title">${answers[index].question}</div>
+          <div class="faq-answer-content">${answers[index].answer}</div>
+        `;
+      });
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Custom FAQ Hover Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom FAQ Hover"
+    }
+  ]
+}
+{% endschema %}
+

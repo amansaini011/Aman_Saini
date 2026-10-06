@@ -1,0 +1,78 @@
+<div class="custom-image-slider">
+  <div class="custom-image-slider-wrapper">
+    <div class="custom-image-slider-img slider">
+      {% for block in section.blocks %}
+        {% if block.settings.image != blank %}
+          <div class="img-slider">
+            <img src="{{ block.settings.image | img_url: 'master' }}" alt="Slider Image">
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .slick-prev {
+    left: 0px;
+    z-index: 2;
+    background: #A02C6B;
+    height: 50px;
+    width: 50px;
+}
+  .slick-next {
+    right: 1px;
+    background: #A02C6B;
+    height: 50px;
+    width: 50px;
+}
+  .slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    padding: 0px 10px;
+}
+.custom-image-slider {
+    padding-bottom: 30px;
+}
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    $('.custom-image-slider-img').slick({
+      dots: false,
+      infinite: true,
+      speed: 2000,
+      arrow:true,
+      autoplay: true,
+      slidesToShow: 3,
+      centerMode: true,
+      variableWidth: true
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom Image Slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image Slider"
+    }
+  ]
+}
+{% endschema %}

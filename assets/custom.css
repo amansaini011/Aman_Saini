@@ -1,0 +1,279 @@
+.custom-add-to-cart-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.quantity-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d17c27;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 2px 10px;
+}
+.product-title {
+    margin-top: 10px;
+    font-weight: 400 !important;
+    color: black;
+    font-size: 13px !important;
+}
+.qty-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #d17c27;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.qty-input {
+  width: 40px;
+  text-align: center;
+  border: none;
+  font-size: 16px;
+  background: transparent;
+  color: #000;
+}
+.product-title {
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    margin-bottom: 5px;
+    color: white;
+    text-transform: uppercase;
+}
+.add-to-cart-btn {
+  background-color: #d17c27;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.view-details-link {
+  display: block;
+  font-size: 14px;
+  color: #d17c27;
+  font-weight: 500;
+  margin-top: 6px;
+  text-decoration: none;
+}
+.custom-product-card {
+  padding: 30px 15px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #f5f5f5; /* default bg */
+}
+
+.custom-product-card.bg-pink {
+  background: linear-gradient(to bottom, #eabfff, #fff0f5);
+}
+
+.custom-product-card.bg-orange {
+  background: linear-gradient(to bottom, #ffc980, #fff1e0);
+}
+
+.custom-product-card.bg-green {
+  background: linear-gradient(to bottom, #d7f5c6, #f6fff0);
+}
+
+.custom-product-card img {
+  max-width: 180px;
+  margin: 0 auto 15px;
+}
+/* === Image Wrap & Circle Background === */
+.custom-add-to-cart-form .product-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+.custom-add-to-cart-form .product-image-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3); /* default, override below */
+  z-index: 0;
+}
+
+/* Image Itself */
+.custom-add-to-cart-form img {
+  max-height: 200px;
+  z-index: 2;
+  position: relative;
+}
+.multi-block-section {
+    display: none;
+}
+/* === Individual Can Colors Based on Product === */
+.quantity-button-add-cart form:nth-child(1) .product-image-wrapper::before {
+  background: radial-gradient(circle, #c840a8 0%, #942b7a 100%);
+}
+
+.quantity-button-add-cart form:nth-child(2) .product-image-wrapper::before {
+  background: radial-gradient(circle, #f5b048 0%, #e38800 100%);
+}
+
+.quantity-button-add-cart form:nth-child(3) .product-image-wrapper::before {
+  background: radial-gradient(circle, #b4e86f 0%, #88c932 100%);
+}
+.header__heading-logo {
+    height: auto;
+    max-width: 100%;
+    display: none;
+}
+header.header.header--top-left.header--mobile-left.page-width.header--has-menu.header--has-account {
+    display: flex;
+    justify-content: space-between;
+}
+h2.header-logo-heading {
+    font-size: 36px;
+    font-weight: 700;
+    font-family: poppins;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+a.menu-drawer__account.link.focus-inset.h5.medium-hide.large-up-hide {
+    display: none;
+}
+
+button.Details,
+button.Ingredients,
+button.Benefits {
+    border: none;
+    padding: 8px 30px;
+    background: #A02C6B;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 25px;
+    transition: background 0.3s ease;
+}
+
+button.Details:hover,
+button.Ingredients:hover,
+button.Benefits:hover {
+    background: #801f56; 
+}
+.button-add-to-card-integration {
+    border: 1px solid #A02C6B;
+    display: flex;
+    gap: 20px;
+    padding: 12px;
+    border-radius: 55px;
+}
+.product-form__quantity .form__label {
+    margin-bottom: .6rem;
+    display: none;
+}
+div#Quantity-Form-template--24188133605688__main {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+product-form.product-form {
+    margin: 0px !important;
+    padding: 0px;
+}
+.button, .shopify-challenge__button, .customer button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    padding: 0 3rem;
+    cursor: pointer;
+    font: inherit;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: rgb(var(--color-button-text));
+    transition: box-shadow var(--duration-short) ease;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgba(var(--color-button),var(--alpha-button-background));
+    background: #A02C6B !important;
+    border: navajowhite;
+    border-radius: 27px;
+}
+.tab-container {
+  display: flex;
+  border: 2px solid #A02C6B;
+  border-radius: 50px;
+  overflow: hidden;
+  width: fit-content;
+  margin: 20px;
+}
+
+.tab {
+  padding: 10px 30px;
+  border: none;
+  background-color: white;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background-color: #A02C6B;
+  color: white;
+  border-radius: 50px;
+}
+.card-information {
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.card__content {
+    width: 300px !important;
+    text-align: center;
+    line-height: 0px;
+}
+a {
+    text-decoration: none;
+    color: #828282;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 31px !important;
+}
+.collection-dynamic .quantity-button-add-cart {
+    display: none !important;
+}
+.card-wrapper.product-card-wrapper.underline-links-hover {
+    display: flex;
+    justify-content: center;
+}
+.custom-main-product-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.tab-container {
+    display: none;
+    border: 2px solid #A02C6B;
+    border-radius: 50px;
+    overflow: hidden;
+    width: fit-content;
+    margin: 20px;
+}
+@media screen and (max-width: 420px) {
+h2.header-logo-heading {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: poppins;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}  
+}

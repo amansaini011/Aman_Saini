@@ -1,0 +1,76 @@
+<div class="custom-product-heading">
+<div class="page-width">
+<div class="custom-product-heading-wrapper">
+<div class="product-heading">
+  <h2>{{ section.settings.heading }}</h2>
+  {{ section.settings.paragraph }}
+</div>
+<div class="background-img" style="background-image: url('{{ section.settings.image | img_url: 'master' }}'); background-size: cover; background-position: center; color: white; text-align: center; height: 100vh;">
+  {% for block in section.blocks %}
+    <div class="text-button">
+      <a href="{{ block.settings.button_url }}" class="buton-new">{{ block.settings.button_text }}</a>
+      <h2>{{ block.settings.heading }}</h2>
+      {{ block.settings.paragraph }}
+      <a href="{{ block.settings.button_2_url }}" class="buton-read">{{ block.settings.button_2_text }}</a>
+    </div>
+  {% endfor %}
+</div>
+</div> 
+</div>  
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Custom product Heading",
+    "settings": [
+      {
+       "type": "text",
+       "id": "heading",
+       "label": "Heading"
+      },
+      {
+       "type": "richtext",
+       "id": "paragraph",
+       "label": "Paragraph"
+      },     
+      {
+       "type": "text",
+       "id": "button",
+       "label": "Button Text"
+      },
+      {
+       "type": "url",
+       "id": "url",
+       "label": "Button Url"
+      },
+      {
+       "type": "text",
+       "id": "head",
+       "label": "Heading"
+      },
+      {
+       "type": "richtext",
+       "id": "para",
+       "label": "Paragraph"
+      },
+      {
+       "type": "text",
+       "id": "btn",
+       "label": "Button Text"
+      },
+      {
+       "type": "url",
+       "id": "ur",
+       "label": "Button Url"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Product Heading "
+      }
+    ]
+  }
+{% endschema %}
