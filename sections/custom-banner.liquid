@@ -1,0 +1,600 @@
+
+
+
+{% assign mobile_image = section.settings.mobile_image | default: section.settings.image %}
+
+<div 
+  class="tisso-banner-section" 
+  id="banner-section-{{ section.id }}" 
+  style="--text-color: {{ section.settings.text_color }}; --bar-bg-color: {{ section.settings.bar_color }}; --accent-yellow: {{ section.settings.accent_color }};"
+>
+
+
+
+<header class="banner-topbar">
+
+
+<button type="button" class="hamburger-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+ <a href="/" class="topbar-logo">
+      {{ section.settings.logo }}
+    </a>
+
+  <div class="topbar-menu-wrapper">
+      <p class="topbar-info-note">{{ section.settings.topbar_text }}</p>
+      <a href="{{ section.settings.gift_link | default: '#' }}" class="banner-btn yellow-gift-btn">
+        <span>{{ section.settings.gift_label }}</span>
+        <span class="btn-arrow-icon"></span>
+      </a>
+    </div>
+  </header>
+
+   <div class="banner-hero">
+    {% if section.settings.image != blank %}
+      <picture class="banner-picture">
+        <source media="(min-width: 750px)" srcset="{{ section.settings.image | image_url: width: 2000 }}">
+        <img src="{{ mobile_image | image_url: width: 900 }}" alt="{{ section.settings.heading | escape }}" loading="eager">
+      </picture>
+    {% endif %}
+  <div class="banner-content-box">
+      <h1 class="banner-heading">{{ section.settings.heading }}</h1>
+      <p class="banner-description">{{ section.settings.text }}</p>
+    <p class="banner-description mobile">{{ section.settings.text-mobile }}</p>
+
+      <a href="{{ section.settings.button_link | default: '#' }}" class="banner-btn black-shop-btn">
+        <span>{{ section.settings.button_label }}</span>
+        <span class="btn-arrow-icon"></span>
+      </a>
+    </div>
+  </div>
+   {% if section.settings.footer_text != blank %}
+    <div class="banner-footer-strip">
+      <p>{{ section.settings.footer_text }}</p>
+    </div>
+  {% endif %}
+
+</div>
+
+<style>
+  .tisso-banner-section {
+    position: relative;
+    background: #ffffff;
+    color: var(--text-color, #000000);
+    font-family: 'Jost', sans-serif;
+  }
+
+  .tisso-banner-section a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .tisso-banner-section * {
+    box-sizing: border-box;
+  }
+
+  .banner-topbar {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: var(--bar-bg-color, #f3f3f3);
+    box-shadow: 0 1
+  }
+
+  .topbar-logo {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  
+  .hamburger-menu-btn {
+    position: absolute;
+    left: 16px;
+    top: 22px;
+    width: 22px;
+    height: 14px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .hamburger-menu-btn span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #000000;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .hamburger-menu-btn span:nth-child(1) {
+    top: 0;
+  }
+
+  .hamburger-menu-btn span:nth-child(2) {
+    top: 6px;
+  }
+
+  .hamburger-menu-btn span:nth-child(3) {
+    top: 12px;
+  }
+
+ 
+  .tisso-banner-section.menu-is-open .hamburger-menu-btn span:nth-child(1) {
+    top: 6px;
+    transform: rotate(45deg);
+  }
+
+  .tisso-banner-section.menu-is-open .hamburger-menu-btn span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .tisso-banner-section.menu-is-open .hamburger-menu-btn span:nth-child(3) {
+    top: 6px;
+    transform: rotate(-45deg);
+  }
+
+  
+  .topbar-menu-wrapper {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 0 8px;
+  }
+
+  .tisso-banner-section.menu-is-open .topbar-menu-wrapper {
+    display: flex;
+  }
+
+  .topbar-info-note {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+  }
+.tisso-banner-section * {
+    box-sizing: border-box;
+   
+
+}
+
+  .banner-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    padding: 0 14px;
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border: 1px solid #000000;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s ease;
+  }
+
+ 
+  .banner-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .banner-btn:hover::before {
+    transform: scaleX(1);
+  }
+.btn-arrow-icon {
+    position: relative;
+    width: 28px;
+    height: 1px;
+    background-color: currentColor;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-arrow-icon::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  .banner-btn:hover .btn-arrow-icon {
+    transform: translateX(6px);
+  }
+  .black-shop-btn {
+    background-color: #000000;
+    color: #ffffff;
+    justify-content: space-between;
+    min-width: 140px;
+  }
+
+  .black-shop-btn::before {
+    background-color: #ffffff;
+  }
+
+  .black-shop-btn:hover {
+    color: #000000;
+  }
+  .yellow-gift-btn {
+    background-color: var(--accent-yellow, #fff53d);
+    border-color: var(--accent-yellow, #fff53d);
+    color: #000000;
+    justify-content: center;
+    gap: 22px;
+    min-width: 140px;
+  }
+
+  .yellow-gift-btn::before {
+    background-color: #000000;
+  }
+
+  .yellow-gift-btn:hover {
+    color: #ffffff;
+  }
+ .banner-hero {
+    display: flex;
+    flex-direction: column;
+  }
+ .banner-content-box {
+    order: 1;
+    position: relative;
+    z-index: 2;
+    padding: 45px 24px 0;
+    text-align: center;
+  }
+
+ .banner-heading {
+    font-size: 70px;
+    margin-bottom: 50px;
+    padding: 0;
+    color: red;
+}
+
+  .banner-description {
+    margin: 0 auto 22px;
+    max-width: 280px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #333333;
+  }
+ .banner-content-box .banner-btn {
+    margin-bottom: -16px;
+  }
+
+  .banner-picture {
+    order: 2;
+    display: block;
+    width: 100%;
+  }
+
+  .banner-picture img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .banner-footer-strip {
+    background: #F5F5F5;
+    padding: 8px 12px;
+    text-align: center;
+  }
+
+  .banner-footer-strip p {
+    margin: 0;
+    font-size: 8px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+
+
+
+
+    @media (max-width: 750px) {
+
+.banner-heading {
+       margin: 0 0 26px;
+    font-size: 30px;
+  
+}
+.black-shop-btn {
+    background-color: #000000;
+    color: #ffffff !important;
+    justify-content: space-between;
+    min-width: 195px;
+    height: 45px;
+    padding-inline: 30px;
+}
+.black-shop-btn {
+    background-color: #000000;
+    color: #ffffff !important;
+    justify-content: space-between;
+    min-width: 195px;
+    height: 45px;
+    padding-inline: 30px;
+    position: absolute;
+    
+    width: max-content;
+    align-items: center;
+    justify-content: space-between;
+    bottom: -130%;
+    right: 24%;
+}
+
+p.banner-description.mobile {
+    display: block;
+    font-size:16px;
+}
+p.banner-description {
+    display: none;
+}
+.topbar-logo {
+    font-size: 21px;
+    font-weight: 600;
+ 
+}
+.yellow-gift-btn {
+   
+    min-width: 240px;
+    height: 45px;
+    font-size: 16px;
+}
+.banner-content-box .banner-btn {
+margin:0;}
+    }
+    @media (min-width: 750px) {
+    .banner-topbar {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      padding: 10px 40px;
+    }
+
+    .hamburger-menu-btn {
+      display: none;
+    }
+
+    .topbar-logo {
+    font-size: 18px;
+    font-weight: 700;
+}
+    .topbar-menu-wrapper {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: auto;
+      padding: 0 0 0 40px;
+    }
+
+    .topbar-info-note {
+      flex: 1;
+      text-align: center;
+      font-size: 16px;
+    }
+
+   .yellow-gift-btn {
+    height: 44px;
+    min-width: 200px;
+    padding: 0 23px;
+    gap: 18px;
+    font-size: 16px;
+}
+
+    .banner-hero {
+      position: relative;
+      min-height: 740px;
+      justify-content: flex-end;
+    }
+
+    .banner-picture {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .banner-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+ .banner-content-box {
+      order: 0;
+      max-width: 560px;
+      margin: 0 0 40px 40px;
+      padding: 24px 28px;
+      text-align: left;
+
+    }
+
+   .banner-heading {
+    font-size: 70px;
+    margin-bottom: 50px;
+    padding: 0;
+}
+p.banner-description.mobile {
+    display: none;
+}
+    .banner-description {
+      margin: 0 0 50px;
+      max-width: 440px;
+      font-size: 13px;
+      font-family: 'Jost', sans-serif;
+      padding:0;
+    }
+.banner-content-box .banner-btn {
+    margin-bottom: 0;
+    min-width: 200px;
+    height: 50px;
+    color: white;
+    align-items: center;
+    padding-inline: 25px;
+    font-size: 16px;
+}
+.banner-content-box .banner-btn:hover {
+    
+    color: black;
+  
+}
+   .banner-footer-strip p {
+    font-size: 16px;
+    padding: 4px;
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var sectionContainer = document.querySelector('#banner-section-{{ section.id }}');
+    if (!sectionContainer) return;
+
+    var menuBtn = sectionContainer.querySelector('.hamburger-menu-btn');
+    if (!menuBtn) return;
+
+    
+    menuBtn.addEventListener('click', function () {
+      var isOpen = sectionContainer.classList.toggle('menu-is-open');
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
+  });
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Custom Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Illustration"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Illustration"
+
+    },
+    {
+      "type": "header",
+      "content": "Top Bar"
+    },
+    {
+      "type": "text",
+      "id": "logo",
+      "label": "Logo text"
+     
+    },
+    {
+      "type": "text",
+      "id": "topbar_text",
+      "label": "Top bar text"
+     
+    },
+    {
+      "type": "text",
+      "id": "gift_label",
+      "label": "Gift button label"
+   
+    },
+    {
+      "type": "url",
+      "id": "gift_link",
+      "label": "Gift button link"
+    },
+    {
+      "type": "header",
+      "content": "Main Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description"
+    }, {
+      "type": "textarea",
+      "id": "text-mobile",
+      "label": "Description Mobile"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Shop button label"
+ 
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Shop button link"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer strip text",
+      "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "bar_color",
+      "label": "Top bar background",
+      "default": "#f3f3f3"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Choose gift button color",
+      "default": "#fff53d"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Banner"
+    }
+  ]
+}
+{% endschema %}
